@@ -12,11 +12,10 @@
 
 #include "../ft_printf.h"
 
-size_t	print_x_upper(va_list args, t_params *var_params)
+void	print_x_upper(va_list args, t_params *var_params, size_t *printed_len)
 {
 	int		n;
 	char	*str;
-	size_t	size;
 
 	n = va_arg(args, int);
 	str = ft_int_to_hex(n);
@@ -26,23 +25,20 @@ size_t	print_x_upper(va_list args, t_params *var_params)
 	if (*str == '0' && var_params->precision_value == 0\
 		&& var_params->has_precision)
 		*str = '\0';
-	size = print_in_screen(str, var_params);
+	*printed_len += print_in_screen(str, var_params);
 	free(str);
-	return (size);
 }
 
-size_t	print_x(va_list args, t_params *var_params)
+void	print_x(va_list args, t_params *var_params, size_t *printed_len)
 {
 	int		n;
 	char	*str;
-	size_t	size;
 
 	n = va_arg(args, int);
 	str = ft_int_to_hex(n);
 	if (*str == '0' && var_params->precision_value == 0\
 		&& var_params->has_precision)
 		*str = '\0';
-	size = print_in_screen(str, var_params);
+	*printed_len += print_in_screen(str, var_params);
 	free(str);
-	return (size);
 }

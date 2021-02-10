@@ -12,11 +12,10 @@
 
 #include "../ft_printf.h"
 
-size_t	print_c(va_list args, t_params *var_params)
+void	print_c(va_list args, t_params *var_params, size_t *printed_len)
 {
 	char	str;
 	char	*new_str;
-	size_t	size;
 
 	str = va_arg(args, int);
 	new_str = ft_calloc(2, sizeof(char));
@@ -24,14 +23,12 @@ size_t	print_c(va_list args, t_params *var_params)
 	if (new_str[0] == 0)
 	{
 		var_params->width_value--;
-		size = print_in_screen(new_str, var_params) + 1;
+		*printed_len += print_in_screen(new_str, var_params) + 1;
 		free(new_str);
-		return (size);
 	}
 	else
 	{
-		size = print_in_screen(new_str, var_params);
+		*printed_len += print_in_screen(new_str, var_params);
 		free(new_str);
-		return (size);
 	}
 }

@@ -30,20 +30,29 @@ typedef struct	s_params
 	int			precision_value;
 }				t_params;
 
-size_t			print_variable(const char *str, size_t *skip_len, va_list args);
+void			print_variable(const char *str, size_t *skip_len, va_list args,
+					size_t *printed_len);
 void			get_params(const char *str, size_t skip_len, va_list args,
-							t_params *var_params);
+					t_params *var_params);
 int				set_flags(const char *str, t_params *var_params);
 size_t			set_width(const char *str, t_params *var_params, va_list args);
 void			set_precision(char *str, t_params *var_params, va_list args);
-size_t			print_c(va_list args, t_params *var_params);
-size_t			print_d(va_list args, t_params *var_params);
-size_t			print_p(va_list args, t_params *var_params);
-size_t			print_pcnt(t_params *var_params);
-size_t			print_s(va_list args, t_params *var_params);
-size_t			print_u(va_list args, t_params *var_params);
-size_t			print_x(va_list args, t_params *var_params);
-size_t			print_x_upper(va_list args, t_params *var_params);
+void			print_c(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_d(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_p(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_pcnt(t_params *var_params, size_t *printed_len);
+void			print_s(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_u(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_x(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_x_upper(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_n(va_list args, size_t *printed_len);
 size_t			print_in_screen(char *str, t_params *var_params);
 char			*ft_utoa(unsigned int n);
 void			print_atributes(t_params *var_params);

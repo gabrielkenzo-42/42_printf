@@ -22,7 +22,7 @@ static size_t	compute_size(char *str, char *temp_str, t_params *var_params)
 	return (size);
 }
 
-size_t			print_s(va_list args, t_params *var_params)
+void			print_s(va_list args, t_params *var_params, size_t *printed_len)
 {
 	char	*str;
 	char	*temp_str;
@@ -47,5 +47,5 @@ size_t			print_s(va_list args, t_params *var_params)
 			free(str);
 		str = temp_str;
 	}
-	return (compute_size(str, temp_str, var_params));
+	*printed_len += compute_size(str, temp_str, var_params);
 }

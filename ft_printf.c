@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static size_t	fit_norm(char *temp, size_t printed_char_len, va_list args)
+static void	fit_norm(char *temp, size_t *printed_len, va_list args)
 {
 	size_t	i;
 	size_t	*skip_len;
@@ -23,30 +23,33 @@ static size_t	fit_norm(char *temp, size_t printed_char_len, va_list args)
 	{
 		if (temp[i] == '%')
 		{
-			printed_char_len += print_variable(temp + i + 1, skip_len, args);
+			print_variable(temp + i + 1, skip_len, args, printed_len);
 			i += *skip_len;
 		}
 		else
 		{
 			ft_putchar(temp[i++]);
-			printed_char_len++;
+			*printed_len += 1;
 		}
 	}
 	free(skip_len);
-	return (printed_char_len);
 }
 
-size_t			ft_printf(const char *str, ...)
+size_t		ft_printf(const char *str, ...)
 {
 	va_list	args;
-	size_t	printed_char_len;
+	size_t	*printed_len;
 	char	*temp;
+	size_t	size;
 
 	va_start(args, str);
-	printed_char_len = 0;
+	printed_len = ft_calloc(2, sizeof(size_t));
+	*printed_len = 0;
 	temp = ft_strdup(str);
-	printed_char_len = fit_norm(temp, printed_char_len, args);
+	fit_norm(temp, printed_len, args);
 	va_end(args);
 	free(temp);
-	return (printed_char_len);
+	size = *printed_len;
+	free(printed_len);
+	return (size);
 }

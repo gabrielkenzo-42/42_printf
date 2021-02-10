@@ -12,11 +12,10 @@
 
 #include "../ft_printf.h"
 
-size_t		print_p(va_list args, t_params *var_params)
+void	print_p(va_list args, t_params *var_params, size_t *printed_len)
 {
 	long long	n;
 	char		*str;
-	size_t		end;
 	char		*temp_str;
 	int			len;
 
@@ -32,8 +31,7 @@ size_t		print_p(va_list args, t_params *var_params)
 		str = ft_strjoin(temp_str, str);
 	}
 	temp_str = ft_strjoin("0x", str);
-	end = print_in_screen(temp_str, var_params);
+	printed_len += print_in_screen(temp_str, var_params);
 	free(str);
 	free(temp_str);
-	return (end);
 }

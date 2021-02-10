@@ -15,7 +15,6 @@
 
 # include "./libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>
 
 size_t			ft_printf(const char *str, ...);
 size_t			parameters_length(const char *str, size_t *skip_len);

@@ -40,7 +40,7 @@ fclean: clean
 re: fclean all
 
 test:
-	@gcc tests/main.c libftprintf.a -g
+	@gcc main.c libftprintf.a -g
 	@./a.out
 	@rm a.out
 

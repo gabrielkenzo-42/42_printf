@@ -31,7 +31,7 @@ void	print_p(va_list args, t_params *var_params, size_t *printed_len)
 		str = ft_strjoin(temp_str, str);
 	}
 	temp_str = ft_strjoin("0x", str);
-	printed_len += print_in_screen(temp_str, var_params);
+	*printed_len += print_in_screen(temp_str, var_params);
 	free(str);
 	free(temp_str);
 }

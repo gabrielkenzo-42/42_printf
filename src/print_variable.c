@@ -19,7 +19,7 @@ size_t		parameters_length(const char *str, size_t *skip_len)
 	i = 0;
 	while (!ft_isalpha(str[i]) && str[i] != '%')
 		i++;
-	*skip_len = i + 2;
+	*skip_len += i + 2;
 	return (i);
 }
 
@@ -54,6 +54,10 @@ static void	ifs(t_params *var_params, va_list args, size_t *printed_len)
 		print_x_upper(args, var_params, printed_len);
 	else if (var_params->type == 'n')
 		print_n(args, printed_len);
+	// else if (var_params->type == 'e')
+	// 	print_e();
+	// else if (var_params->type == 'f')
+	// 	print_f();
 	else
 		ft_putstr("Unknown modifier");
 }

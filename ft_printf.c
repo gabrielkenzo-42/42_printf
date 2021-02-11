@@ -14,21 +14,20 @@
 
 static void	fit_norm(char *temp, size_t *printed_len, va_list args)
 {
-	size_t	i;
+	//size_t	i;
 	size_t	*skip_len;
 
-	i = 0;
 	skip_len = ft_calloc(2, sizeof(size_t));
-	while (temp[i])
+	*skip_len = 0;
+	while (temp[*skip_len])
 	{
-		if (temp[i] == '%')
+		if (temp[*skip_len] == '%')
 		{
-			print_variable(temp + i + 1, skip_len, args, printed_len);
-			i += *skip_len;
+			print_variable(temp + *skip_len + 1, skip_len, args, printed_len);
 		}
 		else
 		{
-			ft_putchar(temp[i++]);
+			ft_putchar(temp[*skip_len++]);
 			*printed_len += 1;
 		}
 	}

@@ -69,6 +69,7 @@ int main()
 	// //printf(" return: %d\n", size_b);
 
 	ftoa(f);
+	ft_printf("%d", 12);
 	//printf("%f\n", f/10);
 	return (0);
 }

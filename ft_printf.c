@@ -27,7 +27,8 @@ static void	fit_norm(char *temp, size_t *printed_len, va_list args)
 		}
 		else
 		{
-			ft_putchar(temp[*skip_len++]);
+			ft_putchar(temp[*skip_len]);
+			*skip_len += 1;
 			*printed_len += 1;
 		}
 	}

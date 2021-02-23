@@ -14,7 +14,6 @@
 
 static void	fit_norm(char *temp, size_t *printed_len, va_list args)
 {
-	//size_t	i;
 	size_t	*skip_len;
 
 	skip_len = ft_calloc(2, sizeof(size_t));

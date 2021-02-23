@@ -53,9 +53,12 @@ void			print_x(va_list args, t_params *var_params,
 void			print_x_upper(va_list args, t_params *var_params,
 					size_t *printed_len);
 void			print_n(va_list args, size_t *printed_len);
+void			print_f(va_list args, t_params *var_params,
+					size_t *printed_len);
+void			print_e(va_list args, t_params *var_params,
+					size_t *printed_len);
 size_t			print_in_screen(char *str, t_params *var_params);
 char			*ft_utoa(unsigned int n);
 void			print_atributes(t_params *var_params);
-int				maximum(int arg_size, ...);
 
 #endif

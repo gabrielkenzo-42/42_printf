@@ -24,7 +24,7 @@ size_t		parameters_length(const char *str, size_t *skip_len)
 }
 
 void		get_params(const char *str, size_t skip_len, va_list args,
-		t_params *var_params)
+				t_params *var_params)
 {
 	size_t	i;
 
@@ -54,15 +54,14 @@ static void	ifs(t_params *var_params, va_list args, size_t *printed_len)
 		print_x_upper(args, var_params, printed_len);
 	else if (var_params->type == 'n')
 		print_n(args, printed_len);
-	// else if (var_params->type == 'e')
-	// 	print_e();
-	// else if (var_params->type == 'f')
-	// 	print_f();
-	else
-		ft_putstr("Unknown modifier");
+	else if (var_params->type == 'f')
+		print_f(args, var_params, printed_len);
+	else if (var_params->type == 'e')
+		print_e(args, var_params, printed_len);
 }
 
-void		print_variable(const char *str, size_t *skip_len, va_list args, size_t *printed_len)
+void		print_variable(const char *str, size_t *skip_len, va_list args,
+				size_t *printed_len)
 {
 	t_params	*var_params;
 

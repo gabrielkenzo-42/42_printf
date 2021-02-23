@@ -72,4 +72,6 @@ int					maximum(int arg_size, ...);
 void				ft_putchar(char c);
 void				ft_putstr(char *str);
 void				print_multiple_char(int i, char c);
+int					ft_pow(int n, int exp);
+char				*ft_ftoa(float n, int precision);
 #endif
